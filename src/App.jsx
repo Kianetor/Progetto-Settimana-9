@@ -1,4 +1,6 @@
 import { useState } from "react";
+import Container from "react-bootstrap/Container";
+import Alert from "react-bootstrap/Alert";
 import "./App.css";
 import { API_KEY } from "./apiKey";
 import Navbar from "./components/Navbar";
@@ -42,13 +44,13 @@ function App() {
   return (
     <div className="bg-netflix-black text-white min-vh-100">
       <Navbar query={query} onQueryChange={setQuery} onSubmit={handleSubmit} />
-      <div className="container-fluid px-4 py-4">
+      <Container fluid className="px-4 py-4">
         <PageHeader />
         {hasSearched ? (
           loading ? (
             <Loader />
           ) : error ? (
-            <p>{error}</p>
+            <Alert variant="danger">{error}</Alert>
           ) : (
             <MovieList movies={movies} />
           )
@@ -59,7 +61,7 @@ function App() {
             <CategoryRow title="Batman" searchTerm="batman" />
           </>
         )}
-      </div>
+      </Container>
       <Footer />
     </div>
   );

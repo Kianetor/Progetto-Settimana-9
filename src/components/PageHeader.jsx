@@ -1,24 +1,22 @@
+import Dropdown from "react-bootstrap/Dropdown";
+
 function PageHeader() {
   return (
     <div className="d-flex justify-content-between align-items-center mb-4">
       <div className="d-flex align-items-center gap-3">
         <h1 className="mb-0 fs-3">TV Shows</h1>
 
-        <div className="dropdown">
-          <button
-            className="btn btn-outline-secondary btn-sm dropdown-toggle"
-            type="button"
-            data-bs-toggle="dropdown"
-          >
+        <Dropdown>
+          <Dropdown.Toggle variant="outline-secondary" size="sm">
             Genres
-          </button>
-          <ul className="dropdown-menu dropdown-menu-dark">
-            <li><a className="dropdown-item" href="#">Action</a></li>
-            <li><a className="dropdown-item" href="#">Comedy</a></li>
-            <li><a className="dropdown-item" href="#">Drama</a></li>
-            <li><a className="dropdown-item" href="#">Fantasy</a></li>
-          </ul>
-        </div>
+          </Dropdown.Toggle>
+          <Dropdown.Menu variant="dark">
+            <Dropdown.Item href="#">Action</Dropdown.Item>
+            <Dropdown.Item href="#">Comedy</Dropdown.Item>
+            <Dropdown.Item href="#">Drama</Dropdown.Item>
+            <Dropdown.Item href="#">Fantasy</Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
       </div>
 
       <div className="d-flex gap-3 fs-5">

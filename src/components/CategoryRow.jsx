@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { API_KEY } from "../apiKey";
-import MovieCard from "./MovieCard";
+import MovieList from "./MovieList";
 
 function CategoryRow({ title, searchTerm }) {
   const [movies, setMovies] = useState([]);
@@ -23,13 +23,7 @@ function CategoryRow({ title, searchTerm }) {
   return (
     <div className="mb-4">
       <h2 className="mb-3">{title}</h2>
-      <div className="row row-cols-2 row-cols-md-3 row-cols-lg-5 g-3">
-        {movies.map((movie) => (
-          <div className="col" key={movie.imdbID}>
-            <MovieCard movie={movie} />
-          </div>
-        ))}
-      </div>
+      <MovieList movies={movies} />
     </div>
   );
 }

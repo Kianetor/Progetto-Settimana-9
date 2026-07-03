@@ -1,15 +1,18 @@
+import Form from "react-bootstrap/Form";
+
 function SearchBar({ query, onQueryChange, onSubmit }) {
   return (
-    <form onSubmit={onSubmit}>
-      <input
+    <Form onSubmit={onSubmit}>
+      <Form.Control
         type="text"
-        className="form-control form-control-sm bg-black text-white border-secondary"
-        placeholder="Cerca un film o una serie..."
+        size="sm"
+        className="search-input"
+        placeholder="Search and press enter"
         value={query}
         onChange={(e) => onQueryChange(e.target.value)}
       />
-    </form>
-  )
+    </Form>
+  );
 }
 
-export default SearchBar
+export default SearchBar;

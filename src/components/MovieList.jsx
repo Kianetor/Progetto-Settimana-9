@@ -1,15 +1,17 @@
-import MovieCard from './MovieCard'
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import MovieCard from "./MovieCard";
 
 function MovieList({ movies }) {
   return (
-    <div className="row row-cols-2 row-cols-md-3 row-cols-lg-5 g-3 mt-2">
+    <Row xs={2} md={3} lg={5} className="g-3 mt-2">
       {movies.map((movie) => (
-        <div className="col" key={movie.imdbID}>
+        <Col key={movie.imdbID}>
           <MovieCard movie={movie} />
-        </div>
+        </Col>
       ))}
-    </div>
-  )
+    </Row>
+  );
 }
 
-export default MovieList
+export default MovieList;

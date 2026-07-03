@@ -1,45 +1,36 @@
+import BsNavbar from "react-bootstrap/Navbar";
+import Nav from "react-bootstrap/Nav";
 import SearchBar from "./SearchBar";
 
 function Navbar({ query, onQueryChange, onSubmit }) {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-netflix-black px-4 py-3">
-      <a className="navbar-brand netflix-logo text-danger fs-2" href="#">
+    <BsNavbar expand="lg" variant="dark" className="bg-netflix-black px-4 py-3">
+      <BsNavbar.Brand href="#" className="netflix-logo text-danger fs-2">
         NETFLIX
-      </a>
+      </BsNavbar.Brand>
 
-      <div className="collapse navbar-collapse">
-        <ul className="navbar-nav me-auto">
-          <li className="nav-item">
-            <a className="nav-link" href="#">Home</a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#">TV Shows</a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#">Movies</a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#">Recently Added</a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#">My List</a>
-          </li>
-        </ul>
-      </div>
+      <BsNavbar.Toggle aria-controls="main-navbar" />
+      <BsNavbar.Collapse id="main-navbar">
+        <Nav className="me-auto">
+          <Nav.Link href="#" eventKey="home">Home</Nav.Link>
+          <Nav.Link href="#" eventKey="tv-shows">TV Shows</Nav.Link>
+          <Nav.Link href="#" eventKey="movies">Movies</Nav.Link>
+          <Nav.Link href="#" eventKey="recently-added">Recently Added</Nav.Link>
+          <Nav.Link href="#" eventKey="my-list">My List</Nav.Link>
+        </Nav>
 
-      <div className="d-flex align-items-center gap-3">
-        <SearchBar
-          query={query}
-          onQueryChange={onQueryChange}
-          onSubmit={onSubmit}
-        />
-        <span className="badge border border-secondary text-white-50">
-          KIDS
-        </span>
-        <a href="#" className="text-white fs-5 text-decoration-none">🔔</a>
-        <a href="#" className="text-white fs-5 text-decoration-none">👤</a>
-      </div>
-    </nav>
+        <div className="d-flex align-items-center gap-3">
+          <SearchBar
+            query={query}
+            onQueryChange={onQueryChange}
+            onSubmit={onSubmit}
+          />
+          <span className="kids-badge">KIDS</span>
+          <Nav.Link href="#" className="fs-5 p-0">🔔</Nav.Link>
+          <Nav.Link href="#" className="fs-5 p-0">👤</Nav.Link>
+        </div>
+      </BsNavbar.Collapse>
+    </BsNavbar>
   );
 }
 
