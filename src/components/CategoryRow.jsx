@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { API_KEY } from "../apiKey";
 import MovieList from "./MovieList";
 
-function CategoryRow({ title, searchTerm }) {
+function CategoryRow({ title, searchTerm, onMovieClick }) {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
@@ -23,7 +23,7 @@ function CategoryRow({ title, searchTerm }) {
   return (
     <div className="mb-4">
       <h2 className="mb-3">{title}</h2>
-      <MovieList movies={movies} />
+      <MovieList movies={movies} onMovieClick={onMovieClick} />
     </div>
   );
 }

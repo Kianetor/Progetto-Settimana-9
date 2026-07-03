@@ -9,6 +9,7 @@ import Loader from "./components/Loader";
 import CategoryRow from "./components/CategoryRow";
 import Footer from "./components/Footer";
 import PageHeader from "./components/PageHeader";
+import MovieModal from "./components/MovieModal";
 
 function App() {
   const [query, setQuery] = useState("");
@@ -16,6 +17,7 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [hasSearched, setHasSearched] = useState(false);
+  const [selectedMovie, setSelectedMovie] = useState(null);
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -52,17 +54,35 @@ function App() {
           ) : error ? (
             <Alert variant="danger">{error}</Alert>
           ) : (
-            <MovieList movies={movies} />
+            <MovieList movies={movies} onMovieClick={setSelectedMovie} />
           )
         ) : (
           <>
-            <CategoryRow title="Harry Potter" searchTerm="harry potter" />
-            <CategoryRow title="Lord of the Rings" searchTerm="lord of the rings" />
-            <CategoryRow title="Batman" searchTerm="batman" />
+            <CategoryRow
+              title="Harry Potter"
+              searchTerm="harry potter"
+              onMovieClick={setSelectedMovie}
+            />
+            <CategoryRow
+              title="Lord of the Rings"
+              searchTerm="lord of the rings"
+              onMovieClick={setSelectedMovie}
+            />
+            <CategoryRow
+              title="Batman"
+              searchTerm="batman"
+              onMovieClick={setSelectedMovie}
+            />
           </>
         )}
       </Container>
       <Footer />
+      {selectedMovie && (
+        <MovieModal
+          movie={selectedMovie}
+          onClose={() => setSelectedMovie(null)}
+        />
+      )}
     </div>
   );
 }
