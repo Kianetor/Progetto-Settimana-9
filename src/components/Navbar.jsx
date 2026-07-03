@@ -3,7 +3,7 @@ import SearchBar from "./SearchBar";
 function Navbar({ query, onQueryChange, onSubmit }) {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-netflix-black px-4 py-3">
-      <a className="navbar-brand text-danger fw-bold fs-3" href="#">
+      <a className="navbar-brand netflix-logo text-danger fs-2" href="#">
         NETFLIX
       </a>
 

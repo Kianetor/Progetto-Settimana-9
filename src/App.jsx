@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./App.css";
 import { API_KEY } from "./apiKey";
 import Navbar from "./components/Navbar";
 import MovieList from "./components/MovieList";
